@@ -1,0 +1,38 @@
+.container
+  .row
+    .col-md-3.col-md-offset-1
+      %p
+        %h3 Network Name:
+        %h4
+          = @saved_network.wifi_name
+      %p
+        %h3 Network Password:
+        %h4
+          = @saved_network.wifi_pw
+      %p
+        %h3 Address:
+        %h4
+          = @saved_network.address
+      %p
+        %h3 Security Type:
+        %h4
+          = @saved_network.security_type
+      %p
+        %h3 Latitude:
+        %h4
+          = @saved_network.latitude
+      %p
+        %h3 Longitude:
+        %h4
+          = @saved_network.longitude
+      = link_to 'Edit', edit_saved_network_path(@saved_network), class: "btn btn-primary btn-block", type: "button"
+      = link_to 'Back', saved_networks_path, class: "btn btn-default btn-block", type: "button"
+
+    .col-md-6.col-md-offset-1
+      = image_tag "http://maps.google.com/maps/api/staticmap?size=500x350&sensor=false&zoom=16&markers=#{@saved_network.latitude}%2C#{@saved_network.longitude}"
+      %h3 Nearby Locations
+      %ul
+      - for saved_network in @saved_network.nearbys(10)
+        %li
+          = link_to saved_network.address, saved_network
+          (#{saved_network.distance.to_f.round(2)} miles)

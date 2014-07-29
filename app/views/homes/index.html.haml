@@ -1,0 +1,36 @@
+.row
+  .col-md-12
+    %br/
+    .jumbotron#george
+      .container
+        .page-header.home
+          %h1
+            %span.glyphicon.glyphicon-map-marker
+            %strong
+              WiFiNDR
+          %p Easily Locate and Track Your Wifi Networks
+          = link_to 'Sign Up', new_user_registration_path, class: "btn btn-success btn-lg", type: "button"
+          = link_to 'Login', new_user_session_path, class: "btn btn-primary btn-lg", type: "button"
+    .row-fluid.module.already-visible.animated.fadeInDown{style: "visibility: visible;"}
+      .tiles_container
+        .col-md-4
+          .tile.tileone.span4.animated
+            %h4
+              %span.glyphicon.glyphicon-map-marker
+              Instantly locate and record your Wifi Networks
+            %br
+            %p Use your devices GPS to mark your Wifi networks details.  View a map of all your saved locations, so you can easily locate nearby locations wherever you are.
+        .col-md-4
+          .tile.tiletwo.span4.animated
+            %h4
+              %span.glyphicon.glyphicon-globe
+              Share your saved networks with the world.
+            %br
+            %p Add friends and share your networks with them. Your map will automatically update to display the markers and street address of your friends saved locations.
+        .col-md-4
+          .tile.tilethree.span4.animated
+            %h4
+              %span.glyphicon.glyphicon-phone
+              View Anywhere
+            %br
+            %p Responsive design allows you to view on virtually any device, login on your phone or tablet and use your devices GPS to save new networks.

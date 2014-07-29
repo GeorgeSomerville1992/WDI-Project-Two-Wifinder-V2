@@ -1,0 +1,58 @@
+.container
+  .row
+    .col-md-12
+      .page-header
+        %h1 All Locations
+      #map{style: "width: 100%; height: 400px;"}
+      %br/
+    .col-md-4
+      = link_to 'New Network', new_saved_network_path, class: "btn btn-primary btn-lg btn-block", type: "button"
+      %h6
+        %span.glyphicon.glyphicon-asterisk
+        = image_tag "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|31708f|000000"
+        \= Your networks
+        = image_tag "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=|f5f5f5|000000"
+        \= Friends Networks
+  .row
+    .col-md-6
+      %h2 My Networks
+      #table-responsive
+        %table{class: 'table table-striped table-hover', name: "t"}
+          %tbody
+            %tr
+              %th SSID
+              %th Password
+              %th Address
+              %th Actions
+            - @saved_networks.each do |saved_network|
+              %tr
+                %td= saved_network.wifi_name
+                %td= saved_network.wifi_pw
+                %td= saved_network.address
+                %td.dropdown
+                  %button{type: 'button', class: "btn btn-default dropdown-toggle btn-block", "data-toggle" => "dropdown"}
+                    %b.caret
+                  %ul.dropdown-menu{role: 'menu'}
+                    %li
+                      = link_to 'Show', saved_network
+                    %li
+                      = link_to 'Edit', edit_saved_network_path(saved_network)
+                    %li
+                      = link_to 'Delete', saved_network, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    .col-md-6
+      %h2 Friends Networks
+      #table-responsive
+        %table{class: 'table table-striped table-hover'}
+          %tbody
+            %tr
+              %th Creator
+              %th SSID
+              %th Password
+              %th Address
+            - @friends_networks.each do |friends_network|
+              %tr
+                %td= friends_network.user.name
+                %td= friends_network.wifi_name
+                %td= friends_network.wifi_pw
+                %td= friends_network.address
+  %br/

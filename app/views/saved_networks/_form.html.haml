@@ -1,0 +1,38 @@
+= form_for @saved_network, role: "form" do |f|
+  - if @saved_network.errors.any?
+    #error_explanation
+      .alert.alert-warning.alert-dismissable
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", type: "button"} &#215;
+        - @saved_network.errors.full_messages.each do |msg|
+          %p
+          = msg
+  .field.form-group
+    = f.label :latitude, 'Latitude'
+    %br/
+    = f.text_field :latitude, readonly: true, class: 'form-control'
+  .field.form-group
+    = f.label :longitude, 'Longitude'
+    %br/
+    = f.text_field :longitude, readonly: true, class: 'form-control'
+  .field.form-group
+    = f.label :address, 'Full Address'
+    %br/
+    = f.text_field :address, class: 'form-control'
+  .field.form-group
+    = f.label :wifi_name, 'Network Name'
+    %br/
+    = f.text_field :wifi_name, class: 'form-control'
+  .field.form-group
+    = f.label :wifi_pw, 'Network Password'
+    %br/
+    = f.text_field :wifi_pw, class: 'form-control'
+  .field.form-group
+    = f.label :image, 'Image'
+    %br/
+    = f.file_field :image, {type: "file", capture: "camera", accept: "image/*", id:"cameraInput"}
+  .field.form-group
+    = f.label :security_type, 'Security Type'
+    %br/
+    = f.select :security_type, options_for_select(["None", "WPA", "WPA/2", "WEP", "802.1X"]), {}, {class: "form-control"}
+  .actions.form-group
+    = f.submit 'Save', class: "btn btn-primary btn-lg btn-block"

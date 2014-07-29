@@ -1,0 +1,65 @@
+@import "bootstrap";
+@import "bootstrap/theme";
+
+$box1color: #3c763d;
+$box2color: #31708f;
+$box3color: #8a6d3b;
+
+body {
+  padding-top: 60px;
+  padding-bottom: 200px;
+}
+
+.jumbotron {
+  background-image: url('gothrones_small.jpg');
+  background-size: cover;
+}
+
+.tileone{
+  float:left;
+  background-color:$box1color;
+  &:hover{
+    box-shadow: 0 0 8px 1px darken($box1color, 10%);
+    margin-top: -10px;
+  }
+}
+
+.tiletwo{
+  float:left;
+  background-color:$box2color;
+  &:hover{
+    box-shadow: 0 0 8px 1px darken($box2color, 10%);
+    margin-top: -10px;
+  }
+}
+
+.tilethree{
+  float:left;
+  background-color:$box3color;
+  &:hover{
+    box-shadow: 0 0 8px 1px darken($box3color, 10%);
+    margin-top: -10px;
+  }
+}
+.tile{
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  width: 100%;
+  height: 180px;
+  transition: all .25s ease-in;
+  padding: 20px;
+}
+
+.page-header{
+  &.home{
+  font-family: Lato,LatoLight,Helvetica,Arial,sans-serif;
+  color: white;
+  text-align: right;
+}
+
+}
+.tiles_container{
+  font-family: Lato,LatoLight,Helvetica,Arial,sans-serif;
+  color: white;
+}
